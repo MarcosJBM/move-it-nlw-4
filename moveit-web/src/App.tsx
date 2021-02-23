@@ -1,9 +1,10 @@
+import { ExperienceBar } from "./components/ExperienceBar";
 import "./styles/global.css";
 
 const App = () => {
   return (
-    <div>
-      <h1>Hello</h1>
+    <div className='container'>
+      <ExperienceBar />
     </div>
   );
 };
