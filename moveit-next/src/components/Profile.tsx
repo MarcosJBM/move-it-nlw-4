@@ -1,6 +1,8 @@
+import styles from '../styles/components/Profile.module.css';
+
 export const Profile = () => {
   return (
-    <div>
+    <div className={styles.profileContainer}>
       <img src='https://github.com/marcosjbm.png' alt='Marcos Botene' />
       <div>
         <strong>Marcos Botene</strong>
