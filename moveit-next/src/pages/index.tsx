@@ -1,9 +1,11 @@
 import { ExperienceBar } from '../components/ExperienceBar';
 
-export default function Home() {
+const Home = () => {
   return (
     <div className='container'>
       <ExperienceBar />
     </div>
   );
-}
+};
+
+export default Home;
