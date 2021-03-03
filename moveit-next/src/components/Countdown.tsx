@@ -3,7 +3,7 @@ import styles from '../styles/components/Countdown.module.css';
 
 export const Countdown = () => {
   const [time, setTime] = useState(25 * 60);
-  const [active, setActive] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const minutes = Math.floor(time / 60);
   const seconds = time % 60;
@@ -12,14 +12,16 @@ export const Countdown = () => {
   const [secondLeft, secondRight] = String(seconds).padStart(2, '0').split('');
 
   const startCountdown = () => {
-    setActive(true);
+    setIsActive(true);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      setTime(time - 1);
-    }, 1000);
-  }, [active, time]);
+    if (isActive && time > 0) {
+      setTimeout(() => {
+        setTime(time - 1);
+      }, 1000);
+    }
+  }, [isActive, time]);
 
   return (
     <div>
@@ -35,13 +37,23 @@ export const Countdown = () => {
         </div>
       </div>
 
-      <button
-        type='button'
-        className={styles.countdownButton}
-        onClick={startCountdown}
-      >
-        Iniciar um ciclo
-      </button>
+      {isActive ? (
+        <button
+          type='button'
+          className={`${styles.countdownButton}${styles.countdownButtonActive}`}
+          onClick={startCountdown}
+        >
+          Abandonar ciclo
+        </button>
+      ) : (
+        <button
+          type='button'
+          className={styles.countdownButton}
+          onClick={startCountdown}
+        >
+          Iniciar um ciclo
+        </button>
+      )}
     </div>
   );
 };
