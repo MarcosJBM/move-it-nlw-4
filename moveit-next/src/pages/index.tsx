@@ -4,6 +4,7 @@ import { ExperienceBar } from '../components/ExperienceBar';
 import { Profile } from '../components/Profile';
 import { CompletedChallenges } from '../components/CompletedChallenges';
 import { Countdown } from '../components/Countdown';
+import { ChallengeBox } from '../components/ChallengeBox';
 
 import styles from '../styles/pages/Home.module.css';
 
@@ -17,12 +18,14 @@ const Home = () => {
       <ExperienceBar />
 
       <section>
-        <div className={styles.left}>
+        <div>
           <Profile />
           <CompletedChallenges />
           <Countdown />
         </div>
-        <div></div>
+        <div>
+          <ChallengeBox />
+        </div>
       </section>
     </div>
   );

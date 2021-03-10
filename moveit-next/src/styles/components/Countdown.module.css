@@ -74,6 +74,7 @@
 }
 
 .countdownButton:disabled {
+  border-bottom: 4px solid var(--green);
   background: var(--white);
   color: var(--text);
   cursor: not-allowed;
