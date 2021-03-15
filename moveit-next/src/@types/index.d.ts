@@ -15,3 +15,11 @@ interface Challenge {
   description: string;
   amount: number;
 }
+
+interface CountdownContextData {
+  minutes: number;
+  seconds: number;
+  hasFinished: boolean;
+  isActive: boolean;
+  startCountdown: () => void;
+}
