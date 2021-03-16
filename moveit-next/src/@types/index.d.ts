@@ -22,4 +22,5 @@ interface CountdownContextData {
   hasFinished: boolean;
   isActive: boolean;
   startCountdown: () => void;
+  resetCountdown: () => void;
 }

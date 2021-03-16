@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useState } from 'react';
+
 import { ChallengesContext } from './ChallengesContext';
 
 export const CountdownContext = createContext({} as CountdownContextData);
@@ -16,8 +17,13 @@ export const CountdownProvider: React.FC = ({ children }) => {
   const seconds = time % 60;
 
   function startCountdown() {
+    setIsActive(true);
+  }
+
+  function resetCountdown() {
     clearTimeout(countdowmnTimeout);
-    setIsActive(isActive => !isActive);
+    setIsActive(false);
+    setHasFinished(false);
     setTime(0.1 * 60);
   }
 
@@ -35,7 +41,14 @@ export const CountdownProvider: React.FC = ({ children }) => {
 
   return (
     <CountdownContext.Provider
-      value={{ minutes, seconds, hasFinished, isActive, startCountdown }}
+      value={{
+        minutes,
+        seconds,
+        hasFinished,
+        isActive,
+        startCountdown,
+        resetCountdown,
+      }}
     >
       {children}
     </CountdownContext.Provider>
